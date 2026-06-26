@@ -1,7 +1,7 @@
 ---
 title: "欢迎使用 Amigo 主题"
 date: 2026-02-15T12:00:00+08:00
-author: "Amigo"
+author: "levizheng"
 location: "苏州 · 腾讯大厦"
 ---
 
