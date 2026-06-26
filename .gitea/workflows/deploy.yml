@@ -9,6 +9,11 @@ jobs:
   build:
     runs-on: runner
     steps:
+      - name: Debug
+        run: |
+          uname -m
+          cat /etc/os-release | head -3
+
       - name: Checkout
         run: |
           rm -rf $GITHUB_WORKSPACE/*
