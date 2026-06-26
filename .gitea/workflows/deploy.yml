@@ -1,0 +1,27 @@
+name: Deploy Hugo Blog
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true  # 拉取主题 submodule
+
+      - name: Install Hugo
+        run: |
+          HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name"' | sed 's/.*"v\([^"]*\)".*/\1/')
+          wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-arm64.tar.gz
+          tar -xzf hugo_extended_${HUGO_VERSION}_linux-arm64.tar.gz
+          sudo mv hugo /usr/local/bin/
+
+      - name: Build
+        run: |
+          cd $GITHUB_WORKSPACE
+          hugo -d /opt/1panel/www/sites/blog/index
