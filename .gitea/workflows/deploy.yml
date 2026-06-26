@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: runner≈x
+    runs-on: runner
     steps:
       - name: Checkout
         uses: actions/checkout@v3
