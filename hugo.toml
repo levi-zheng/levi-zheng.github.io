@@ -54,7 +54,7 @@ theme = 'Amigo'
   commentMode = "artalk"
 
   # 1. Artalk 评论（官方文档：https://artalk.js.org/）
-  artalkServer = "https://artak:23366"
+  artalkServer = "https://artalk.180636.xyz"
   artalkSite = "levizheng's blog"
   # 是否开启底部评论弹幕（true 开启，false 关闭）
   enableDanmaku = true
