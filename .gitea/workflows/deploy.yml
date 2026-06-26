@@ -9,16 +9,16 @@ jobs:
   build:
     runs-on: runner
     steps:
-      - name: Debug
-        run: |
-          whoami
-          echo $PATH
-          ls /usr/local/bin/hugo
-          find / -name hugo 2>/dev/null
-
       - name: Checkout
         run: |
           git clone --recurse-submodules http://gitea.180636.xyz/levizheng/blog.git $GITHUB_WORKSPACE
+
+      - name: Install Hugo
+        run: |
+          HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name"' | sed 's/.*"v\([^"]*\)".*/\1/')
+          wget -q https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-arm64.tar.gz
+          tar -xzf hugo_extended_${HUGO_VERSION}_linux-arm64.tar.gz
+          mv hugo /usr/local/bin/hugo
 
       - name: Build
         run: |
