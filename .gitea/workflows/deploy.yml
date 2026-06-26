@@ -9,11 +9,17 @@ jobs:
   build:
     runs-on: runner
     steps:
+      - name: Debug
+        run: |
+          whoami
+          echo $PATH
+          ls /usr/local/bin/hugo
+          find / -name hugo 2>/dev/null
+
       - name: Checkout
         run: |
           git clone --recurse-submodules http://gitea.180636.xyz/levizheng/blog.git $GITHUB_WORKSPACE
 
       - name: Build
         run: |
-          /usr/local/bin/hugo -d /opt/1panel/www/sites/blog/index
-
+          hugo -d /opt/1panel/www/sites/blog/index
