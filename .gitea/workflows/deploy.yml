@@ -11,14 +11,14 @@ jobs:
     steps:
       - name: Checkout
         run: |
+          rm -rf $GITHUB_WORKSPACE/*
           git clone --recurse-submodules http://gitea.180636.xyz/levizheng/blog.git $GITHUB_WORKSPACE
-
-      - name: Install Hugo
-        run: |
-          wget -q https://github.com/gohugoio/hugo/releases/download/v0.163.3/hugo_extended_0.163.3_linux-arm64.tar.gz
-          tar -xzf hugo_extended_0.163.3_linux-arm64.tar.gz
-          mv hugo /usr/local/bin/hugo
 
       - name: Build
         run: |
-          hugo -d /opt/1panel/www/sites/blog/index
+          docker run --rm \
+            -v $GITHUB_WORKSPACE:/site \
+            -v /opt/1panel/www/sites/blog/index:/output \
+            -w /site \
+            klakegg/hugo:ext-ubuntu \
+            hugo -d /output
