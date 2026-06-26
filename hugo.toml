@@ -1,5 +1,5 @@
 publishDir = "/opt/1panel/www/sites/blog/index"
-baseURL = 'https://180636.xyz'
+baseURL = 'https://blog.180636.xyz'
 languageCode = 'zh-cn'
 title = '我的朋友圈'
 theme = 'Amigo'
