@@ -16,9 +16,4 @@ jobs:
 
       - name: Build
         run: |
-          docker run --rm \
-            -v $GITHUB_WORKSPACE:/site \
-            -v /opt/1panel/www/sites/blog/index:/output \
-            -w /site \
-            klakegg/hugo:ext-ubuntu \
-            hugo -d /output
+          /usr/local/bin/hugo -d /opt/1panel/www/sites/blog/index
