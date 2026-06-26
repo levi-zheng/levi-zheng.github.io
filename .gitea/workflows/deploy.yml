@@ -13,6 +13,8 @@ jobs:
         run: |
           rm -rf $GITHUB_WORKSPACE/*
           git clone --recurse-submodules http://gitea.180636.xyz/levizheng/blog.git $GITHUB_WORKSPACE
+          ls $GITHUB_WORKSPACE/themes/Amigo/layouts/_default/
+          grep "moment-comments-area" $GITHUB_WORKSPACE/themes/Amigo/layouts/_default/single.html || echo "NOT FOUND"
 
       - name: Install Hugo
         run: |
