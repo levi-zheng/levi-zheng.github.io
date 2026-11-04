@@ -1,5 +1,5 @@
 publishDir = "/opt/1panel/www/sites/blog/index"
-baseURL = 'https://blog.180636.xyz'
+baseURL = 'https://blog.levizheng.top'
 languageCode = 'zh-cn'
 title = '我的朋友圈'
 theme = 'Amigo'
@@ -54,7 +54,7 @@ theme = 'Amigo'
   commentMode = "artalk"
 
   # 1. Artalk 评论（官方文档：https://artalk.js.org/）
-  artalkServer = "https://artalk.180636.xyz"
+  artalkServer = "https://artalk.levizheng.top"
   artalkSite = "levizheng的博客"
   # 是否开启底部评论弹幕（true 开启，false 关闭）
   enableDanmaku = true
